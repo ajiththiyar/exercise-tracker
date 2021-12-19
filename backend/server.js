@@ -1,7 +1,13 @@
+// Imp imports
 const express = require('express')
 const cors = require('cors');
 const mongoose = require('mongoose')
 
+// Routes
+const exerciseRouter = require('./routes/exercises');
+const usersRouter = require('./routes/users');
+
+// Env loading
 require('dotenv').config();
 
 const app = express();
@@ -17,6 +23,9 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("MongoDB database Connection established successfully");
 })
+
+app.use('/exercises', exerciseRouter);
+app.use('/users', usersRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
