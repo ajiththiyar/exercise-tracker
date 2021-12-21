@@ -9,17 +9,21 @@ import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
 
 
+
 const App = () => {
+  
   return (
     <Router>
-      <Navbar/>
-      <br/>
-      <Routes>
-      <Route exact path="/" component={ExercisesList} />
-      <Route exact path="/edit/:id" component={EditExercise} />
-      <Route exact path="/create" component={CreateExercise} />
-      <Route exact path="/user" component={CreateUser} />
-      </Routes>
+      <div className="container">
+        <Navbar/>
+        <br/>
+        <Routes>
+        <Route exact path="/" element={<ExercisesList/>} />
+        <Route exact path="/edit/:id" element={<EditExercise/>} />
+        <Route exact path="/create" element={<CreateExercise/>} />
+        <Route exact path="/user" element={<CreateUser/>} />
+        </Routes>
+      </div>
     </Router>
   )
 }
